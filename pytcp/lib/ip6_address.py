@@ -129,37 +129,37 @@ class Ip6Address(IpAddress):
     def is_loopback(self) -> bool:
         """Check if IPv6 address is loopback"""
 
-        return self._address == 1  # ::1/128
+        return self._address == 0x0000_0000_0000_0000_0000_0000_0000_0001  # ::1/128
 
     @property
     def is_global(self) -> bool:
         """Check if IPv6 address is global"""
 
-        return self._address in range(42535295865117307932921825928971026432, 85070591730234615865843651857942052864)  # 2000::/3
+        return self._address & 0xE000_0000_0000_0000_0000_0000_0000_0000 == 0x2000_0000_0000_0000_0000_0000_0000_0000  # 2000::/3
 
     @property
     def is_private(self) -> bool:
         """Check if IPv6 address is private"""
 
-        return self._address in range(334965454937798799971759379190646833152, 337623910929368631717566993311207522304)  # fc00::/7
+        return self._address & 0xFE00_0000_0000_0000_0000_0000_0000_0000 == 0xFC00_0000_0000_0000_0000_0000_0000_0000  # fc00::/7
 
     @property
     def is_link_local(self) -> bool:
         """Check if IPv6 address is link local"""
 
-        return self._address in range(338288524927261089654018896841347694592, 338620831926207318622244848606417780736)  # fe80::/10
+        return self._address & 0xFFC0_0000_0000_0000_0000_0000_0000_0000 == 0xFE80_0000_0000_0000_0000_0000_0000_0000  # fe80::/10
 
     @property
     def is_multicast(self) -> bool:
         """Check if IPv6 address is multicast"""
 
-        return self._address in range(338953138925153547590470800371487866880, 340282366920938463463374607431768211456)  # ff00::/8
+        return self._address & 0xFF00_0000_0000_0000_0000_0000_0000_0000 == 0xFF00_0000_0000_0000_0000_0000_0000_0000  # ff00::/8
 
     @property
     def is_solicited_node_multicast(self) -> bool:
         """Check if address is IPv6 solicited node multicast address"""
 
-        return self._address in range(338963523518870617245727861372719464448, 338963523518870617245727861372736241664)  # ff02::1:ff00:0/104
+        return self._address & 0xFFFF_FFFF_FFFF_FFFF_FFFF_FFFF_FF00_0000 == 0xFF02_0000_0000_0000_0000_0001_FF00_0000  # ff02::1:ff00:0/104
 
     @property
     def solicited_node_multicast(self) -> Ip6Address:
