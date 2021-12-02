@@ -122,7 +122,7 @@ class Ip6Address(IpAddress):
         """Bytes representation"""
 
         return struct.pack(
-            "!LLLL", (self._address >> 96) & 0xFFFFFFFF, (self._address >> 64) & 0xFFFFFFFF, (self._address >> 32) & 0xFFFFFFFF, self._address & 0xFFFFFFFF
+            "!LLLL", (self._address >> 96) & 0xFFFF_FFFF, (self._address >> 64) & 0xFFFF_FFFF, (self._address >> 32) & 0xFFFF_FFFF, self._address & 0xFFFF_FFFF
         )
 
     @property
@@ -165,7 +165,7 @@ class Ip6Address(IpAddress):
     def solicited_node_multicast(self) -> Ip6Address:
         """Create IPv6 solicited node multicast address"""
 
-        return Ip6Address(self._address & 0xFFFFFF | int(Ip6Address("ff02::1:ff00:0")))
+        return Ip6Address(self._address & 0xFF_FFFF | 0xFF02_0000_0000_0000_0000_0001_FF00_0000)
 
     @property
     def multicast_mac(self) -> MacAddress:
@@ -173,7 +173,7 @@ class Ip6Address(IpAddress):
 
         assert self.is_multicast
 
-        return MacAddress(int(MacAddress(0x333300000000)) | self._address & 0xFFFFFFFF)
+        return MacAddress(0x333300000000 | self._address & 0xFFFF_FFFF)
 
     @property
     def unspecified(self) -> Ip6Address:
