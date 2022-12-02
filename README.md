@@ -8,9 +8,9 @@
 [![GitHub License](http://img.shields.io/badge/license-GPL--3.0-yellowgreen)](http://pytcp.io/LICENSE)
 [![CI](http://github.com/ccie18643/PyTCP/actions/workflows/ci.yml/badge.svg)](http://github.com/ccie18643/PyTCP/actions/workflows/ci.yml)
 
-[![GitHub watchers](http://img.shields.io/github/watchers/ccie18643/PyTCP.svg?style=social&label=Watch&maxAge=2592000)](http://GitHub.com/ccie18643/PyTCP/watchers/)
-[![GitHub forks](http://img.shields.io/github/forks/ccie18643/PyTCP.svg?style=social&label=Fork&maxAge=2592000)](http://GitHub.com/ccie18643/PyTCP/network/)
-[![GitHub stars](http://img.shields.io/github/stars/ccie18643/PyTCP.svg?style=social&label=Star&maxAge=2592000)](http://GitHub.com/ccie18643/PyTCP/stargazers/)
+[![GitHub watchers](http://img.shields.io/github/watchers/ccie18643/PyTCP.svg?style=social&label=Watch&maxAge=60)](http://GitHub.com/ccie18643/PyTCP/watchers/)
+[![GitHub forks](http://img.shields.io/github/forks/ccie18643/PyTCP.svg?style=social&label=Fork&maxAge=60)](http://GitHub.com/ccie18643/PyTCP/network/)
+[![GitHub stars](http://img.shields.io/github/stars/ccie18643/PyTCP.svg?style=social&label=Star&maxAge=60)](http://GitHub.com/ccie18643/PyTCP/stargazers/)
 
 <br>
 
